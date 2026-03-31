@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReformasPro - Tu hogar, nuestra pasión | Reformas Integrales en Madrid</title>
+    <meta name="description" content="Empresa de reformas integrales en Madrid. Especialistas en cocinas, baños, pintura, electricidad y fontanería. Presupuesto gratis.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a2e4a;
+            --secondary: #f97316;
+            --white: #ffffff;
+            --gray-light: #f8fafc;
+            --gray: #64748b;
+            --gray-dark: #334155;
+            --success: #22c55e;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-dark);
+            overflow-x: hidden;
+        }
+
+        /* Banner Superior */
+        .top-banner {
+            background: linear-gradient(90deg, var(--secondary) 0%, #ea580c 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .top-banner i {
+            margin-right: 8px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(26, 46, 74, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            padding: 0 5%;
+        }
+
+        .navbar.with-banner {
+            top: 40px;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-slogan {
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.8;
+            display: block;
+            margin-top: -3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            background: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-phone:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 46, 74, 0.9) 0%, rgba(26, 46, 74, 0.7) 100%), 
+                        url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 120px 5% 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 span {
+            color: var(--secondary);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: #ea580c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header h2 span {
+            color: var(--secondary);
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .section-line {
+            width: 80px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--gray-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d4a6f 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2rem;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--secondary);
+            transform: rotateY(360deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Calculator Section */
+        .calculator {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .calculator .section-header h2,
+        .calculator .section-header p {
+            color: var(--white);
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 30px;
+            padding: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .calculator-form {
+            display: grid;
+            gap: 30px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .form-group label {
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .form-group select,
+        .form-group input[type="range"] {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group select {
+            background: var(--white);
+            color: var(--gray-dark);
+            cursor: pointer;
+        }
+
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .range-value {
+            background: var(--secondary);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 600;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            flex: 1;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            outline: none;
+            padding: 0;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 25px;
+            height: 25px;
+            background: var(--secondary);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        .quality-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quality-option {
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .quality-option input {
+            display: none;
+        }
+
+        .quality-option label {
+            display: block;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quality-option input:checked + label {
+            background: var(--secondary);
+            border-color: var(--white);
+        }
+
+        .calculator-result {
+            background: var(--white);
+            color: var(--primary);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .calculator-result h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .price-display {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .price-note {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--white);
+        }
+
+        .gallery-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            border: 2px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(26, 46, 74, 0.9) 0%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 25px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .gallery-overlay p {
+            color: var(--secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            background: var(--gray-light);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .why-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .why-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--white);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--secondary);
+            box-shadow: var(--shadow);
+            flex-shrink: 0;
+        }
+
+        .why-content h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .why-content h3 span {
+            color: var(--secondary);
+        }
+
+        .why-content p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: var(--gray-light);
+            padding: 35px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-stars {
+            color: #fbbf24;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-text {
+            color: var(--gray-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f1a2a 100%);
+            color: var(--white);
+        }
+
+        .contact .section-header h2,
+        .contact .section-header p {
+            color: var(--white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: none;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--white);
+            color: var(--gray-dark);
+        }
+
+        .contact-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            left: -9999px;
+        }
+
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .file-input-label:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-form .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 18px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--secondary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .contact-details h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-details p,
+        .contact-details a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-details a:hover {
+            color: var(--secondary);
+        }
+
+        /* Coverage Section */
+        .coverage {
+            background: var(--gray-light);
+        }
+
+        .coverage-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .coverage-map {
+            background: var(--white);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .coverage-map i {
+            font-size: 8rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        .coverage-map h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .coverage-list h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .coverage-list h3 span {
+            color: var(--secondary);
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .city-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .city-item:hover {
+            transform: translateX(10px);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .city-item i {
+            color: var(--secondary);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background: var(--white);
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--gray-light);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 25px 30px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(249, 115, 22, 0.05);
+        }
+
+        .faq-question i {
+            color: var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer p {
+            padding: 0 30px 25px;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: var(--white);
+            padding: 80px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            max-width: 1400px;
+            margin: 0 auto 50px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .footer-social a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--white);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+            color: var(--secondary);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            width: 20px;
+        }
+
+        .footer-contact a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 30px;
+            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-bottom p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom-links a {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-tooltip {
+            position: absolute;
+            right: 80px;
+            background: var(--white);
+            color: var(--gray-dark);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .whatsapp-float:hover .whatsapp-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .contact-container,
+            .coverage-container {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-banner {
+                font-size: 0.8rem;
+                padding: 8px 10px;
+            }
+
+            .navbar.with-banner {
+                top: 35px;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                right: 0;
+                background: var(--primary);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-phone {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero-stats {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .calculator-container {
+                padding: 30px 20px;
+            }
+
+            .quality-options {
+                flex-direction: column;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .why-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .why-icon {
+                margin: 0 auto;
+            }
+
+            .cities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                gap: 40px;
+            }
+
+            .whatsapp-float {
+                width: 55px;
+                height: 55px;
+                font-size: 1.7rem;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        <i class="fas fa-hammer"></i> 10% de descuento en reformas de baño este mes
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar with-banner" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div>
+                    <span class="logo-text">ReformasPro</span>
+                    <span class="logo-slogan">Tu hogar, nuestra pasión</span>
+                </div>
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#inicio" class="active">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#galeria">Trabajos</a></li>
+                <li><a href="#testimonios">Testimonios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <a href="tel:+34912345678" class="nav-phone">
+                <i class="fas fa-phone"></i>
+                <span>912 345 678</span>
+            </a>
+
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+            <span class="hero-badge">Reformas Integrales en Madrid</span>
+            <h1>Transformamos tu <span>hogar</span> en el espacio de tus sueños</h1>
+            <p>Especialistas en reformas de cocinas, baños y viviendas completas. Más de 15 años de experiencia y 500 obras realizadas con garantía de calidad.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">
+                    <i class="fas fa-calculator"></i>
+                    Pedir Presupuesto Gratis
+                </a>
+                <a href="#galeria" class="btn btn-secondary">
+                    <i class="fas fa-images"></i>
+                    Ver Trabajos
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-label">Años de experiencia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="500">0</div>
+                    <div class="stat-label">Obras realizadas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" data-count="98">0</div>
+                    <div class="stat-label">% Clientes satisfechos</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="servicios">
+        <div class="section-header reveal">
+            <h2>Nuestros <span>Servicios</span></h2>
+            <p>Ofrecemos soluciones integrales para todas tus necesidades de reforma</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Reformas Integrales</h3>
+                <p>Transformamos completamente tu vivienda con proyectos a medida, desde la demolición hasta la entrega final.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>Reformas de Cocina</h3>
+                <p>Diseñamos y reformamos cocinas funcionales y modernas, adaptadas a tu estilo y necesidades diarias.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-bath"></i>
+                </div>
+                <h3>Reformas de Baño</h3>
+                <p>Creamos espacios de relax con acabados de alta calidad, sanitarios modernos e instalaciones eficientes.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-paint-roller"></i>
+                </div>
+                <h3>Pintura y Decoración</h3>
+                <p>Acabados profesionales de pintura interior y exterior con materiales de primera calidad.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Electricidad</h3>
+                <p>Instalaciones eléctricas completas, boletines, iluminación LED y automatización del hogar.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-faucet"></i>
+                </div>
+                <h3>Fontanería</h3>
+                <p>Instalación y reparación de fontanería, calefacción, aerotermia y sistemas de climatización.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-th-large"></i>
+                </div>
+                <h3>Suelos y Azulejos</h3>
+                <p>Colocación de parquet, tarima, cerámica, porcelánico y microcemento con acabados impecables.</p>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h3>Fachadas</h3>
+                <p>Rehabilitación de fachadas, impermeabilización, aislamiento térmico y pintura exterior.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculadora">
+        <div class="section-header reveal">
+            <h2>Calcula tu <span>Presupuesto</span></h2>
+            <p>Obtén una estimación instantánea de tu reforma en menos de 1 minuto</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="calculator-container reveal">
+            <div class="calculator-form">
+                <div class="form-group">
+                    <label for="reformType">Tipo de Reforma</label>
+                    <select id="reformType">
+                        <option value="cocina">Reforma de Cocina</option>
+                        <option value="bano">Reforma de Baño</option>
+                        <option value="integral">Reforma Integral</option>
+                        <option value="pintura">Pintura</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Metros Cuadrados</label>
+                    <div class="range-container">
+                        <input type="range" id="squareMeters" min="10" max="200" value="50">
+                        <span class="range-value" id="metersValue">50 m²</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Calidad de Materiales</label>
+                    <div class="quality-options">
+                        <div class="quality-option">
+                            <input type="radio" name="quality" id="basic" value="basic">
+                            <label for="basic">Básica</label>
+                        </div>
+                        <div class="quality-option">
+                            <input type="radio" name="quality" id="standard" value="standard" checked>
+                            <label for="standard">Estándar</label>
+                        </div>
+                        <div class="quality-option">
+                            <input type="radio" name="quality" id="premium" value="premium">
+                            <label for="premium">Premium</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-result">
+                <h3>Presupuesto Estimado</h3>
+                <div class="price-display" id="priceDisplay">7.500 €</div>
+                <p class="price-note">* Precio orientativo sin compromiso. Solicita tu presupuesto detallado.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="galeria">
+        <div class="section-header reveal">
+            <h2>Nuestros <span>Trabajos</span></h2>
+            <p>Descubre algunas de nuestras reformas realizadas en Madrid</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="gallery-filters reveal">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="cocinas">Cocinas</button>
+            <button class="filter-btn" data-filter="banos">Baños</button>
+            <button class="filter-btn" data-filter="salones">Salones</button>
+            <button class="filter-btn" data-filter="exteriores">Exteriores</button>
+        </div>
+
+        <div class="gallery-grid">
+            <div class="gallery-item reveal" data-category="cocinas">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80" alt="Cocina moderna">
+                <div class="gallery-overlay">
+                    <h4>Cocina Moderna</h4>
+                    <p>Madrid Centro</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="banos">
+                <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&q=80" alt="Baño reformado">
+                <div class="gallery-overlay">
+                    <h4>Baño Contemporáneo</h4>
+                    <p>Chamberí</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="salones">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=80" alt="Salón reformado">
+                <div class="gallery-overlay">
+                    <h4>Salón Integral</h4>
+                    <p>Salamanca</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="cocinas">
+                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Cocina blanca">
+                <div class="gallery-overlay">
+                    <h4>Cocina Minimalista</h4>
+                    <p>Retiro</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="banos">
+                <img src="https://images.unsplash.com/photo-1620626012053-1a1c5f7a3c7d?w=800&q=80" alt="Baño moderno">
+                <div class="gallery-overlay">
+                    <h4>Baño Spa</h4>
+                    <p>Chamartín</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="exteriores">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80" alt="Fachada reformada">
+                <div class="gallery-overlay">
+                    <h4>Fachada Rehabilitada</h4>
+                    <p>Tetuán</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="salones">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=80" alt="Salón moderno">
+                <div class="gallery-overlay">
+                    <h4>Salón Diáfano</h4>
+                    <p>Moncloa</p>
+                </div>
+            </div>
+
+            <div class="gallery-item reveal" data-category="cocinas">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?w=800&q=80" alt="Cocina industrial">
+                <div class="gallery-overlay">
+                    <h4>Cocina Industrial</h4>
+                    <p>Arganzuela</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us" id="por-que-elegirnos">
+        <div class="section-header reveal">
+            <h2>¿Por qué <span>Elegirnos?</span></h2>
+            <p>Miles de clientes confían en nosotros por nuestra profesionalidad y compromiso</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="why-grid">
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="why-content">
+                    <h3><span>+15</span> años de experiencia</h3>
+                    <p>Más de una década dedicada exclusivamente a reformas de calidad en Madrid.</p>
+                </div>
+            </div>
+
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <div class="why-content">
+                    <h3><span>+500</span> obras realizadas</h3>
+                    <p>Un extenso portfolio de proyectos exitosos y clientes satisfechos.</p>
+                </div>
+            </div>
+
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="why-content">
+                    <h3>Garantía <span>2 años</span></h3>
+                    <p>Todas nuestras obras incluyen garantía escrita de 2 años en instalaciones.</p>
+                </div>
+            </div>
+
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div class="why-content">
+                    <h3>Presupuesto <span>sin compromiso</span></h3>
+                    <p>Estudiamos tu proyecto y te damos presupuesto detallado gratis y sin compromiso.</p>
+                </div>
+            </div>
+
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="why-content">
+                    <h3>Materiales de <span>calidad</span></h3>
+                    <p>Trabajamos con las mejores marcas y materiales certificados del mercado.</p>
+                </div>
+            </div>
+
+            <div class="why-item reveal">
+                <div class="why-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="why-content">
+                    <h3>Equipo <span>propio</span></h3>
+                    <p>Contamos con nuestro propio equipo de profesionales, sin subcontratas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonios">
+        <div class="section-header reveal">
+            <h2>Lo que dicen <span>nuestros clientes</span></h2>
+            <p>Testimonios reales de clientes satisfechos con nuestras reformas</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"ReformasPro transformó completamente nuestra cocina. El equipo fue muy profesional, cumplieron los plazos y el resultado superó nuestras expectativas. ¡Totalmente recomendables!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="María García" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>María García</h4>
+                        <p>Reforma de Cocina - Chamberí</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Excelente trabajo en la reforma integral de nuestro piso. Desde el primer día mostraron profesionalidad y atención al detalle. El presupuesto se ajustó a lo acordado sin sorpresas."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Carlos Martínez" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Carlos Martínez</h4>
+                        <p>Reforma Integral - Salamanca</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">"Contratamos para reformar dos baños y quedamos encantados. Gran calidad en los acabados, limpieza durante la obra y muy buena comunicación con el equipo. Volveremos a contar con ellos."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Ana López" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Ana López</h4>
+                        <p>Reforma de Baños - Retiro</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Profesionales de verdad. Nos asesoraron en todo momento y nos ayudaron a elegir los mejores materiales dentro de nuestro presupuesto. La reforma de nuestro salón quedó espectacular."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Pedro Sánchez" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Pedro Sánchez</h4>
+                        <p>Reforma de Salón - Chamartín</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contacto">
+        <div class="section-header reveal">
+            <h2>Solicita tu <span>Presupuesto</span></h2>
+            <p>Cuéntanos tu proyecto y te contactaremos en menos de 24 horas</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="contact-container">
+            <form class="contact-form reveal" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nombre completo *" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Teléfono *" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email *" required>
+                    </div>
+                    <div class="form-group">
+                        <select required>
+                            <option value="">Tipo de reforma *</option>
+                            <option value="integral">Reforma Integral</option>
+                            <option value="cocina">Cocina</option>
+                            <option value="bano">Baño</option>
+                            <option value="pintura">Pintura</option>
+                            <option value="electricidad">Electricidad</option>
+                            <option value="fontaneria">Fontanería</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <input type="number" placeholder="Metros cuadrados aproximados">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" placeholder="Fecha preferida de visita">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <textarea placeholder="Describe tu proyecto... ¿Qué te gustaría reformar? ¿Tienes alguna preferencia de estilo o materiales?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="fileUpload" multiple accept="image/*">
+                        <label for="fileUpload" class="file-input-label">
+                            <i class="fas fa-camera"></i>
+                            <span>Adjuntar fotos del espacio (opcional)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Solicitud
+                </button>
+            </form>
+
+            <div class="contact-info reveal">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Teléfono</h4>
+                        <a href="tel:+34912345678">+34 912 345 678</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/34612345678" target="_blank">+34 612 345 678</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Email</h4>
+                        <a href="mailto:info@reformaspro.es">info@reformaspro.es</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Dirección</h4>
+                        <p>Calle Gran Vía 45, 28013 Madrid</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h4>Horario</h4>
+                        <p>Lunes a Viernes: 8:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coverage Section -->
+    <section class="coverage" id="cobertura">
+        <div class="section-header reveal">
+            <h2>Zona de <span>Cobertura</span></h2>
+            <p>Trabajamos en Madrid y toda la Comunidad de Madrid</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="coverage-container">
+            <div class="coverage-map reveal">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Comunidad de Madrid</h3>
+                <p>Cobertura completa en toda la provincia</p>
+            </div>
+
+            <div class="coverage-list reveal">
+                <h3>Principales <span>zonas</span> donde trabajamos:</h3>
+                <div class="cities-grid">
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Madrid Centro</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Chamberí</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Salamanca</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Chamartín</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Tetuán</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Retiro</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Arganzuela</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Moncloa</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Latina</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Carabanchel</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Pozuelo</span>
+                    </div>
+                    <div class="city-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Las Rozas</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header reveal">
+            <h2>Preguntas <span>Frecuentes</span></h2>
+            <p>Resolvemos tus dudas sobre nuestras reformas</p>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="faq-container">
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Cuánto tiempo tarda una reforma integral?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>El tiempo de una reforma integral depende del tamaño y complejidad del proyecto. Generalmente, una reforma completa de un piso de 80-100m² puede tardar entre 6 y 10 semanas. Te proporcionamos un calendario detallado antes de comenzar para que puedas planificar con tranquilidad.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Dais garantía en las obras realizadas?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí, todas nuestras obras incluyen una garantía escrita de 2 años en instalaciones y 1 año en acabados. Además, trabajamos con seguro de responsabilidad civil para tu total tranquilidad. Cualquier incidencia será atendida de forma prioritaria.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Necesito salir de casa durante la reforma?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>No es necesario en la mayoría de los casos. En reformas parciales (cocina o baño) puedes seguir viviendo en casa. Para reformas integrales, podemos organizar el trabajo por fases para minimizar las molestias. Te asesoramos sobre la mejor opción según tu proyecto.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Trabajáis con financiación?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí, ofrecemos opciones de financiación flexibles para que puedas realizar tu reforma sin preocupaciones económicas. Contamos con acuerdos con entidades financieras para ofrecerte las mejores condiciones. Consúltanos sin compromiso.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Cómo se realiza el pago de la obra?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>El pago se realiza por fases según el avance de la obra: un porcentaje al inicio, pagos intermedios ligados a hitos del proyecto y el pago final a la entrega. Siempre con factura y garantía. La forma de pago exacta se especifica detalladamente en el contrato.</p>
+                </div>
+            </div>
+
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    ¿Quién se encarga de la gestión de permisos y licencias?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Nosotros nos encargamos de toda la gestión administrativa: solicitud de licencias de obra, comunicación con la comunidad de vecinos, gestión de contenedores y retirada de escombros. Tú solo tienes que preocuparte de disfrutar el resultado final.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div>
+                        <span class="logo-text">ReformasPro</span>
+                        <span class="logo-slogan">Tu hogar, nuestra pasión</span>
+                    </div>
+                </a>
+                <p>Especialistas en reformas integrales en Madrid. Más de 15 años de experiencia transformando hogares con calidad, profesionalidad y garantía.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Servicios</h4>
+                <ul>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Reformas Integrales</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Cocinas</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Baños</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Pintura</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Electricidad</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Fontanería</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#galeria"><i class="fas fa-chevron-right"></i> Nuestros Trabajos</a></li>
+                    <li><a href="#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                    <li><a href="#calculadora"><i class="fas fa-chevron-right"></i> Calculadora</a></li>
+                    <li><a href="#faq"><i class="fas fa-chevron-right"></i> FAQ</a></li>
+                    <li><a href="#contacto"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-phone"></i> <a href="tel:+34912345678">+34 912 345 678</a></p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/34612345678">+34 612 345 678</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:info@reformaspro.es">info@reformaspro.es</a></p>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Gran Vía 45, 28013 Madrid</p>
+                <p><i class="fas fa-clock"></i> Lun-Vie: 8:00-19:00 / Sáb: 9:00-14:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 ReformasPro. Todos los derechos reservados.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Aviso Legal</a>
+                <a href="#">Política de Privacidad</a>
+                <a href="#">Política de Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/34612345678" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¿Hablamos por WhatsApp?</span>
+    </a>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        const topBanner = document.querySelector('.top-banner');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+                navbar.classList.remove('with-banner');
+                topBanner.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.classList.remove('scrolled');
+                navbar.classList.add('with-banner');
+                topBanner.style.transform = 'translateY(0)';
+            }
+        });
+
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-menu a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Animated counter
+        const counters = document.querySelectorAll('.stat-number');
+        let counted = false;
+
+        const animateCounters = () => {
+            const heroSection = document.querySelector('.hero');
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            
+            if (heroBottom > 0 && !counted) {
+                counted = true;
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-count'));
+                    const duration = 2000;
+                    const increment = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current) + (counter.getAttribute('data-count') === '98' ? '%' : '+');
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target + (counter.getAttribute('data-count') === '98' ? '%' : '+');
+                        }
+                    };
+
+                    updateCounter();
+                });
+            }
+        };
+
+        window.addEventListener('scroll', animateCounters);
+
+        // Calculator functionality
+        const reformType = document.getElementById('reformType');
+        const squareMeters = document.getElementById('squareMeters');
+        const metersValue = document.getElementById('metersValue');
+        const qualityOptions = document.querySelectorAll('input[name="quality"]');
+        const priceDisplay = document.getElementById('priceDisplay');
+
+        const prices = {
+            cocina: { basic: 800, standard: 1200, premium: 1800 },
+            bano: { basic: 600, standard: 900, premium: 1400 },
+            integral: { basic: 400, standard: 600, premium: 900 },
+            pintura: { basic: 15, standard: 25, premium: 40 }
+        };
+
+        const calculatePrice = () => {
+            const type = reformType.value;
+            const meters = parseInt(squareMeters.value);
+            let quality = 'standard';
+            
+            qualityOptions.forEach(option => {
+                if (option.checked) {
+                    quality = option.value;
+                }
+            });
+
+            const pricePerUnit = prices[type][quality];
+            let totalPrice;
+
+            if (type === 'pintura') {
+                totalPrice = pricePerUnit * meters;
+            } else if (type === 'cocina' || type === 'bano') {
+                totalPrice = pricePerUnit + (meters > 50 ? (meters - 50) * 10 : 0);
+            } else {
+                totalPrice = pricePerUnit * meters;
+            }
+
+            priceDisplay.textContent = totalPrice.toLocaleString('es-ES') + ' €';
+        };
+
+        squareMeters.addEventListener('input', (e) => {
+            metersValue.textContent = e.target.value + ' m²';
+            calculatePrice();
+        });
+
+        reformType.addEventListener('change', calculatePrice);
+        qualityOptions.forEach(option => {
+            option.addEventListener('change', calculatePrice);
+        });
+
+        // Gallery filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                            item.style.transform = 'scale(1)';
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.8)';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+            });
+        });
+
+        // FAQ accordion
+        const faqItems = document.querySelectorAll('.faq-item');
+
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                faqItems.forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show success message
+            alert('¡Gracias por contactarnos! Te llamaremos en menos de 24 horas para hablar sobre tu proyecto.');
+            contactForm.reset();
+        });
+
+        // File upload label update
+        const fileUpload = document.getElementById('fileUpload');
+        const fileLabel = document.querySelector('.file-input-label span');
+
+        fileUpload.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                fileLabel.textContent = `${e.target.files.length} archivo(s) seleccionado(s)`;
+            } else {
+                fileLabel.textContent = 'Adjuntar fotos del espacio (opcional)';
+            }
+        });
+    </script>
+</body>
+</html>
